@@ -11,6 +11,14 @@ const nodemailer = require('nodemailer');
 
 // Initialize express app FIRST
 const app = express();
+const cors = require('cors');
+
+app.use(cors({
+  origin: ['https://sourcebd.vercel.app', 'https://sourcebd-deployment.vercel.app'], // your frontend URLs
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  credentials: true
+}));
+
 
 // Middleware setup
 app.use(express.json());
